@@ -1,10 +1,33 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+
 .form_container {
-  width: 50%;
   height: fit-content;
   padding: 5% 5% 0 5%;
   margin-top: 2%;
-  border: 1px solid #222222;
-  border-radius: 5px;
+}
+
+/* Portrait */
+@media screen and (orientation:portrait) {
+  .form_container {
+    width: 100%;
+  }
+
+  .row {
+    min-height: 100px;
+  }
+}
+
+/* Landscape */
+@media screen and (orientation:landscape) {
+  .form_container {
+    width: 50%;
+    border: 1px solid #222222;
+    border-radius: 5px;
+  }
 }
 
 .underlined_text {
@@ -16,7 +39,7 @@
   text-transform: uppercase;
 }
 
-/* Свойства цкласса при наведении */
+/* Свойства класса при наведении */
 .underlined_text:hover {
   cursor: pointer;
 }
