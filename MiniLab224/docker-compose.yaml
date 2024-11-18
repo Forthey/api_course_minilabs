@@ -1,0 +1,29 @@
+name: minilab2
+
+services:
+  server:
+    container_name: server
+    build:
+      dockerfile: dockerfiles/server/Dockerfile
+      context: .
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: always
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${DATABASE_USER}'" ]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pg_data:
