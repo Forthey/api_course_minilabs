@@ -6,7 +6,7 @@
 
 Install docker on your OS. [Windows link](https://docs.docker.com/desktop/setup/install/windows-install/)
 
-Run the command in the console
+Run the command in the console in the root folder (MiniLab224)
 ```shell
 docker-compose up --build
 ```
